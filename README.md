@@ -9,7 +9,9 @@ manage resources.
 
 Prerequisites: an AWS account and a set of credentials registered via the AWS CLI tools.
 
-In order to deploy the application, you'll need to run two steps:
+In order to deploy the application, you'll need to run three steps:
+
+`yarn install` will install any dependencies for the application.
 
 `yarn run cdk bootstrap` will create resources used by CDK to deploy non-AWS resources (eg: function code,
 docker images, etc.) into AWS.
