@@ -1,14 +1,24 @@
-# Welcome to your CDK TypeScript project
+# Simple API CDK + Serverless
 
-This is a blank project for CDK development with TypeScript.
+This project defines a serverless API which handles a simple "hello world" endpoint as
+well as (most of) a CRUDL endpoint for a simple data object. The app is deployed via AWS CDK,
+which manages the infrastructure of the app so that you don't need to manually provision and
+manage resources.
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+## Deploying
 
-## Useful commands
+Prerequisites: an AWS account and a set of credentials registered via the AWS CLI tools.
 
-* `npm run build`   compile typescript to js
-* `npm run watch`   watch for changes and compile
-* `npm run test`    perform the jest unit tests
-* `cdk deploy`      deploy this stack to your default AWS account/region
-* `cdk diff`        compare deployed stack with current state
-* `cdk synth`       emits the synthesized CloudFormation template
+In order to deploy the application, you'll need to run two steps:
+
+`yarn run cdk bootstrap` will create resources used by CDK to deploy non-AWS resources (eg: function code,
+docker images, etc.) into AWS.
+
+Once that's complete, `yarn run cdk deploy` will deploy the application based on the constructs defined
+in `./lib/simple_api-stack.ts`.
+
+## Included
+
+* API Gateway
+* Lambda functions (Hello, CRUDL functions housed in `./src/lambdas`)
+* DynamoDB Table (for managing data for the CRUDL operations)

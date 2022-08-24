@@ -5,12 +5,12 @@ import Log from 'pino';
 
 const logger = Log();
 
-async function listCruds(event: APIGatewayEvent, _context: Context ) {
-    const results: CrudObject[] = await dbClient.scan();
+async function updateCrud(event: APIGatewayEvent, _context: Context ) {
+    // TODO: this function is not complete, and is a no-op currently.
     return {
         statusCode: 200,
-        body: results
+        body: ""
     }
 }
 
-export const handler = listCruds;
+export const handler = updateCrud;
